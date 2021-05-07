@@ -18,15 +18,16 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     try:
         sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
         response = sg.send(message)
-        logging.info("==================================")
         logging.info(response.status_code)
         logging.info(response.body)
         logging.info(response.headers)
-        logging.info(os.environ.get('SENDGRID_API_KEY'))
+        return func.HttpResponse(
+            "e-mail sent using sendgrid API",
+            status_code=200
+        )
     except Exception as e:
         logging.info(e.message)
-
-    return func.HttpResponse(
-        "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
-        status_code=200
-    )
+        return func.HttpResponse(
+            "Error sending mail with sendgrid API",
+            status_code=401
+        )

@@ -8,7 +8,7 @@
       "direction": "in",
       "topicName": "topic1",
       "subscriptionName": "mysubscription",
-      "connection": "atradiusnathaliesbdev_SERVICEBUS"
+      "connection": "SERVICE_BUS_CONNECTION_STRING"
     }
   ]
 }
