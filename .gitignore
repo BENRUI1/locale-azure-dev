@@ -128,3 +128,4 @@ obj
 appsettings.json
 local.settings.json
 .python_packages
+call_http_func_from_sb/sample.dat
